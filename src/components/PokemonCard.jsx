@@ -1,6 +1,14 @@
-
 import { Card, CardMedia, CardContent, CardActions, Typography, Button } from "@mui/material";
 import "./PokemonCard.css";
+
+const TYPE_LABELS = {
+    A: 'Agua',
+    F: 'Fuego',
+    T: 'Tierra',
+    P: 'Planta',
+    E: 'Eléctrico',
+    L: 'Lagartija',
+};
 
 export default function PokemonCard({ pokemon }) {
     const mediaUrl = import.meta.env.VITE_MEDIA_URL;
@@ -19,7 +27,7 @@ export default function PokemonCard({ pokemon }) {
                     {pokemon.name}
                 </Typography>
                 <Typography variant="body" color="text.secondary">
-                    {pokemon.type}
+                    {TYPE_LABELS[pokemon.type] || pokemon.type}
                 </Typography>
             </CardContent>
             <CardActions>
